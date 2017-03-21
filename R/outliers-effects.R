@@ -17,7 +17,7 @@ outliers.effects <- function(mo, n, weights = FALSE, delta = 0.7,
 {
   # effects of outliers on the original series
   # variables in equation (19) in Chen-Liu (1993)
-  # see equations (2) and (4) in the document attached to the package
+  # see equations (2) and (4) in the document attached to the package``
 
   IOeffect <- function(n, ind, pars, w = 1, n.start = 50)
   {

@@ -228,7 +228,8 @@ locate.outliers.iloop <- function(resid, pars, cval = 3.5,
 }
 
 locate.outliers.oloop <- function(y, fit, types = c("AO", "LS", "TC"), 
-  cval = NULL, maxit.iloop = 4, delta = 0.7, n.start = 50, logfile = NULL)
+  cval = NULL, maxit.iloop = 4, delta = 0.7, n.start = 50, logfile = NULL,
+  maxit.oloop = 4)
 {
 ##FIXME 
 # add "maxit" (renamed as "maxit.oloop") as argument; 
@@ -238,7 +239,7 @@ locate.outliers.oloop <- function(y, fit, types = c("AO", "LS", "TC"),
 # instead of "while(iter < maxit)", nevertheless, for safety it is 
 # better to define a maximum number of iterations
 
-  maxit <- 4 # maxit.oloop
+  maxit <- maxit.oloop; #4
   n <- length(y)
   s <- frequency(y)
 
@@ -465,7 +466,7 @@ locate.outliers.oloop <- function(y, fit, types = c("AO", "LS", "TC"),
   } # end while
 
   if (iter == maxit)
-    warning(paste("stopped when", sQuote("maxit.oloop = 4"), "was reached"))
+    warning(paste("stopped when", sQuote("maxit.oloop = "), maxit.oloop, " was reached"))
 
   # time points with multiple types of potential outliers are not expected
   # since they are removed at each iteration

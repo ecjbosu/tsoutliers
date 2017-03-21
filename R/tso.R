@@ -12,7 +12,8 @@ tso <- function(y, xreg = NULL, cval = NULL, delta = 0.7, n.start = 50,
   remove.method = c("en-masse", "bottom-up"),
   remove.cval = NULL, 
   tsmethod = c("auto.arima", "arima", "stsm"), 
-  args.tsmethod = NULL, args.tsmodel = NULL, logfile = NULL)
+  args.tsmethod = NULL, args.tsmodel = NULL, logfile = NULL,
+  maxit.oloop = 4)
 {
   tsmethod <- match.arg(tsmethod)
   remove.method <- match.arg(remove.method)
@@ -270,7 +271,8 @@ tso0 <- function(x, xreg = NULL, cval = 3.5, delta = 0.7, n.start = 50,
   # given a fitted time series model
 
   stage1 <- locate.outliers.oloop(y = y, fit = fit, types = types, cval = cval, 
-    maxit.iloop = maxit.iloop, delta = delta, n.start = n.start, logfile = logfile)
+    maxit.iloop = maxit.iloop, delta = delta, n.start = n.start, logfile = logfile,
+    maxit.oloop = maxit.oloop)
 
   # choose and fit the model including the outlier regressors detected so far
   # (the weights of the outliers is fine tuned, to see it 

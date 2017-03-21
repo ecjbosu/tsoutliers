@@ -1,4 +1,10 @@
 
+Changes in version 0.6-5 2017-03-21
+------------------------------------
+  o added maxit.oloop parameter to locate.outliers.oloop.  Update tso and outliers.effects
+    with this parameter.  Set default to 4 as in previous versions.
+
+
 Changes in version 0.6-5 2016-12-08
 ------------------------------------  
 
